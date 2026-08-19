@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug TTAM Minimal in Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:5174/",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMaps": true
+    },
+    {
+      "name": "Debug TTAM Minimal in Edge",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://127.0.0.1:5174/",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMaps": true
+    }
+  ]
+}

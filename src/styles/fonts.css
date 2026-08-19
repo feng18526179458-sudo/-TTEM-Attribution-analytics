@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap");
+
+@font-face {
+  font-family: "TikTok Sans Text";
+  src: local("TikTok Sans");
+}
+@font-face {
+  font-family: "TikTok Sans Display";
+  src: local("TikTok Sans");
+}

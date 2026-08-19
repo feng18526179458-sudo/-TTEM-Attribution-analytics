@@ -1,0 +1,10 @@
+@import "./fonts.css";
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+@import "./theme.css";
+
+
+body {
+  background-color: var(--ks-color-neutral-surface, #ffffff);
+  color: var(--ks-color-neutral-highOnSurface, #121415);
+}
