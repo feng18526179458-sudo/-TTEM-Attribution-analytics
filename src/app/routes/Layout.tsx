@@ -49,7 +49,7 @@ export default function Layout() {
       />
 
       <RailNav />
-      <main className="min-h-screen pt-[68px] pl-[60px] bg-neutral-surface1">
+      <main className="min-h-screen pt-[68px] pl-[60px] bg-neutral-surface3">
         <div className="mx-auto flex min-h-[calc(100vh-68px)] max-w-[1366px] flex-col px-8 pt-0">
           <Outlet />
         </div>

@@ -162,8 +162,12 @@ export function RailNav() {
   const [hovered, setHovered] = useState(false);
   const [moreToolsOpen, setMoreToolsOpen] = useState(false);
 
-  const expanded = hovered || moreToolsOpen;
+  const expanded = hovered;
   const collapsed = !expanded;
+  const closeExpandedNav = () => {
+    setHovered(false);
+    setMoreToolsOpen(false);
+  };
 
   const style = useMemo(
     () => ({
@@ -182,17 +186,18 @@ export function RailNav() {
         : 'w-[216px] justify-start gap-3 rounded-[6px] px-3',
       active ? 'bg-[#e7fbf7]' : 'bg-white hover:bg-[#f4f5f5]',
     ].join(' ');
-  const expandedItemClass = (highlighted: boolean) =>
+  const expandedItemClass = (active: boolean, highlighted: boolean) =>
     [
       'group flex h-10 w-[220px] shrink-0 items-center gap-3 rounded-[6px] border-0 px-2.5 text-[#1f1f1f] outline-none transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-[#12c99b]/40',
-      highlighted ? 'bg-[#f0f1f1]' : 'bg-white hover:bg-[#f4f5f5]',
+      active ? 'bg-[#e7fbf7]' : highlighted ? 'bg-[#f0f1f1]' : 'bg-white hover:bg-[#f4f5f5]',
     ].join(' ');
 
   return (
     <aside
       style={style}
       onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={closeExpandedNav}
+      onPointerLeave={closeExpandedNav}
       className="fixed left-0 top-[68px] bottom-0 z-50 overflow-hidden border-x border-solid border-[#d3d4d5] bg-white transition-[width] duration-200 ease-out"
       aria-label="Primary navigation"
     >
@@ -210,7 +215,7 @@ export function RailNav() {
               aria-label={visualLabel}
               aria-current={active ? 'page' : undefined}
               title={collapsed ? visualLabel : undefined}
-              className={expanded ? expandedItemClass(moreToolsItemOpen) : railItemClass(active)}
+              className={expanded ? expandedItemClass(active, moreToolsItemOpen) : railItemClass(active)}
               onClick={() => {
                 if (item.value === 'more-tools') {
                   setMoreToolsOpen(true);
